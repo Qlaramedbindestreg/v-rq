@@ -17,13 +17,7 @@ export default function Kontakt() {
     event.preventDefault();
 
     const subject = `Kontakt fra ${formData.name || "VærQ hjemmeside"}`;
-    const body = `
-Navn: ${formData.name}
-Email: ${formData.email}
-
-Besked:
-${formData.message}
-    `.trim();
+    const body = `Navn: ${formData.name}\nEmail: ${formData.email}\n\nBesked:\n${formData.message}`;
 
     const mailtoLink = `mailto:clara@vaerq.dk?subject=${encodeURIComponent(
       subject
@@ -96,10 +90,8 @@ ${formData.message}
           </button>
 
           <p className="contact__meta">
-            Eller skriv direkte til{" "}
-            <a href="mailto:clara@vaerq.dk.com">
-              clara@vaerq.dk
-            </a>
+            Eller skriv direkte til {" "}
+            <a href="mailto:clara@vaerq.dk">clara@vaerq.dk</a>
           </p>
         </form>
       </div>
