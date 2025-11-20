@@ -25,7 +25,7 @@ Besked:
 ${formData.message}
     `.trim();
 
-    const mailtoLink = `mailto:claraqvistrichards@gmail.com?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:clara@vaerq.dk?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
 
@@ -97,8 +97,8 @@ ${formData.message}
 
           <p className="contact__meta">
             Eller skriv direkte til{" "}
-            <a href="mailto:claraqvistrichards@gmail.com">
-              claraqvistrichards@gmail.com
+            <a href="mailto:clara@vaerq.dk.com">
+              clara@vaerq.dk
             </a>
           </p>
         </form>
