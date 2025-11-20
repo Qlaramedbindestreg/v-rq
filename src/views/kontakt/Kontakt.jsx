@@ -1,29 +1,53 @@
 import React, { useState } from "react";
 import "./kontakt.scss";
 
+const FORM_ENDPOINT = "https://formspree.io/f/mblwwrvq"; 
+
 export default function Kontakt() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState(null); 
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
+    setStatus(null);
 
-    const subject = `Kontakt fra ${formData.name || "VærQ hjemmeside"}`;
-    const body = `Navn: ${formData.name}\nEmail: ${formData.email}\n\nBesked:\n${formData.message}`;
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          navn: formData.name,
+          email: formData.email,
+          besked: formData.message,
+        }),
+      });
 
-    const mailtoLink = `mailto:clara@vaerq.dk?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -85,12 +109,29 @@ export default function Kontakt() {
             />
           </div>
 
-          <button type="submit" className="contact__submit">
-            Send besked
+          <button
+            type="submit"
+            className="contact__submit"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Sender..." : "Send besked"}
           </button>
 
+          {status === "success" && (
+            <p className="contact__status contact__status--success">
+              Tak for din besked! Vi vender tilbage hurtigst muligt.
+            </p>
+          )}
+
+          {status === "error" && (
+            <p className="contact__status contact__status--error">
+              Noget gik galt. Prøv igen, eller skriv direkte til{" "}
+              <a href="mailto:clara@vaerq.dk">clara@vaerq.dk</a>.
+            </p>
+          )}
+
           <p className="contact__meta">
-            Eller skriv direkte til {" "}
+            Du kan også skrive direkte til{" "}
             <a href="mailto:clara@vaerq.dk">clara@vaerq.dk</a>
           </p>
         </form>
