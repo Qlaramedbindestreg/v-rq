@@ -1,0 +1,113 @@
+@import "../../variables";
+
+.frontpage {
+  min-height: 100vh;
+  width: 100%;
+  background-color: $blue-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  font-family: $font-body;
+  color: $light-color;
+}
+
+/* Intro-logo overlay */
+.frontpage__logo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 2;
+  background-color: $blue-color;
+}
+
+.frontpage__logo img {
+  max-width: 280px;
+  width: 45vw;
+}
+
+.frontpage__logo--visible {
+  opacity: 1;
+}
+
+.frontpage__logo--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hero content */
+.frontpage__hero {
+  max-width: 900px;
+  padding: 0 20px;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  z-index: 1;
+}
+
+.frontpage__hero--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.frontpage__wordmark {
+  font-size: clamp(3rem, 8vw, 5rem);
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.frontpage__tagline {
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  max-width: 40rem;
+  line-height: 1.7;
+  color: rgba($light-color, 0.9);
+  margin-bottom: 2rem;
+}
+
+.frontpage__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.frontpage__links a {
+  display: inline-block;
+  padding: 9px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid rgba($light-color, 0.65);
+  color: $light-color;
+  background: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, transform 0.1s ease;
+}
+
+.frontpage__links a:hover {
+  background-color: $second-red-color;
+  border-color: $second-red-color;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .frontpage__hero {
+    text-align: left;
+  }
+
+  .frontpage__wordmark {
+    letter-spacing: 0.12em;
+  }
+
+  .frontpage__links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
