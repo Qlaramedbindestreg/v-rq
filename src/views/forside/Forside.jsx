@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";   
-import logo from "../../assets/Q.png";
+import { Link } from "react-router-dom";
 import "./forside.scss";
 
 export default function Forside() {
@@ -9,11 +8,11 @@ export default function Forside() {
 
   useEffect(() => {
     const logoTimer = setTimeout(() => {
-      setShowLogo(false);
+      setShowLogo(false); // hide the intro wordmark
     }, 1800);
 
     const textTimer = setTimeout(() => {
-      setShowText(true);
+      setShowText(true); // reveal main content
     }, 2300);
 
     return () => {
@@ -28,14 +27,16 @@ export default function Forside() {
         className={`frontpage__logo ${
           showLogo ? "frontpage__logo--visible" : "frontpage__logo--hidden"
         }`}
+        aria-hidden={!showLogo}
       >
-        <img src={logo} alt="VærQ logo" />
+        <h1 className="frontpage__logo-wordmark">VÆRQ</h1>
       </div>
 
       <section
         className={`frontpage__hero ${
           showText ? "frontpage__hero--visible" : ""
         }`}
+        aria-hidden={!showText}
       >
         <h1 className="frontpage__wordmark">VÆRQ</h1>
         <p className="frontpage__tagline">
@@ -44,7 +45,7 @@ export default function Forside() {
         </p>
 
         <div className="frontpage__links">
-          <Link to="/booking">Book VærQ</Link>
+          <Link to="/booking">Book VÆRQ</Link>
           <Link to="/om-os">Mød os</Link>
           <Link to="/kontakt">Kontakt</Link>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./kontakt.scss";
 
-const FORM_ENDPOINT = "https://formspree.io/f/mblwwrvq"; 
+const FORM_ENDPOINT = "https://formspree.io/f/mblwwrvq";
 
 export default function Kontakt() {
   const [formData, setFormData] = useState({
@@ -9,7 +9,7 @@ export default function Kontakt() {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState(null); 
+  const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (event) => {
@@ -53,7 +53,7 @@ export default function Kontakt() {
   return (
     <main className="contact">
       <div className="contact__card">
-        <h1 className="contact__title">Kontakt VærQ</h1>
+        <h1 className="contact__title">Kontakt VÆRQ</h1>
 
         <p className="contact__intro">
           Vi vil altid gerne høre fra dig - uanset om du har et projekt i

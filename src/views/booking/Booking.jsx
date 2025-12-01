@@ -13,10 +13,10 @@ export default function Booking() {
     <main className="booking">
       <section className="booking__layout">
         <div className="booking__intro">
-          <h1 className="booking__title">Book VærQ</h1>
+          <h1 className="booking__title">Book VÆRQ</h1>
 
           <p className="booking__text">
-            VærQ er en designvirksomhed, der tilbyder scenografi- og
+            VÆRQ er en designvirksomhed, der tilbyder scenografi- og
             identitetsdesign til kunstnere, kulturinstitutioner, events og
             festivaller. Vores kerneydelse er skræddersyede visuelle
             helhedsløsninger – fra fysisk setdesign til digital tilstedeværelse,
@@ -26,7 +26,7 @@ export default function Booking() {
 
           <p className="booking__text">
             Vi oplever et stigende behov i kulturbranchen for visuelle koncepter,
-            der er både æstetisk stærke, klimabevidste og digitale. VærQ tilbyder
+            der er både æstetisk stærke, klimabevidste og digitale. VÆRQ tilbyder
             derfor fleksible designpakker, der kan rumme:
           </p>
         </div>
@@ -50,7 +50,7 @@ export default function Booking() {
 
       <section className="booking__cta">
         <p className="booking__cta-text">
-          Ønsker du at høre mere eller booke VærQ til et projekt?
+          Ønsker du at høre mere eller booke VÆRQ til et projekt?
         </p>
         <a href="/kontakt" className="booking__cta-link">
           Kontakt os her →

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../../assets/Q.png";
+
 import "./header.scss";
 
 export default function Header() {
@@ -23,7 +23,7 @@ export default function Header() {
           className="header__brand"
           onClick={() => setMenuOpen(false)}
         >
-          <img src={logo} alt="VærQ logo" className="header__logo" />
+
           <span className="header__wordmark">VÆRQ</span>
         </NavLink>
 
@@ -40,9 +40,8 @@ export default function Header() {
         </button>
 
         <nav
-          className={`header__nav ${
-            menuOpen ? "header__nav--open" : ""
-          }`}
+          className={`header__nav ${menuOpen ? "header__nav--open" : ""
+            }`}
           aria-label="Primær navigation"
         >
           <ul className="header__nav-list">

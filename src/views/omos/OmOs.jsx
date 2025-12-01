@@ -10,13 +10,13 @@ export default function OmOs() {
     <main className="omOsMain">
       <section className="introSection">
         <div className="textContainer">
-          <h1 className="title">Om VærQ</h1>
+          <h1 className="title">Om VÆRQ</h1>
           <p className="description">
-            VærQ er et kreativt designfællesskab drevet af søstrene Rachel og
+            VÆRQ er et kreativt designfællesskab drevet af søstrene Rachel og
             Clara og deres kusine Laura. Sammen forener vi vores forskellige
             fagligheder inden for kommunikation, design, arkitektur og
             håndværk. Vi kommer fra en familie fyldt med kunstnere, musikere og
-            designere – og VærQ er vores måde at føre den kreative arv videre
+            designere – og VÆRQ er vores måde at føre den kreative arv videre
             på.
           </p>
         </div>
@@ -24,7 +24,7 @@ export default function OmOs() {
         <div className="groupImageContainer">
           <img
             src={alle}
-            alt="Teamet bag VærQ"
+            alt="Teamet bag VÆRQ"
             className="groupImage"
           />
         </div>
@@ -62,7 +62,7 @@ export default function OmOs() {
           <h2 className="profileName">Clara Qvist-Richards</h2>
           <p className="role">Cand.mag. i kultur og kommunikation</p>
           <p className="responsibility">
-            Kommunikations- og administrationsansvarlig
+            Kommunikation og ad. hoc. 
           </p>
         </div>
       </section>

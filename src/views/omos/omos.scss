@@ -43,7 +43,7 @@
     .description {
       font-size: 1.05rem;
       line-height: 1.7;
-      color: rgba(247, 237, 236, 0.95);
+      color: $light-color;
     }
   }
 
@@ -107,7 +107,7 @@
 
     .responsibility {
       font-size: 0.95rem;
-      color: rgba(247, 237, 236, 0.9);
+      color: grey;
     }
   }
 }
