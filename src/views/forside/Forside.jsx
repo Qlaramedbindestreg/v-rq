@@ -8,11 +8,11 @@ export default function Forside() {
 
   useEffect(() => {
     const logoTimer = setTimeout(() => {
-      setShowLogo(false); // hide the intro wordmark
+      setShowLogo(false); 
     }, 1800);
 
     const textTimer = setTimeout(() => {
-      setShowText(true); // reveal main content
+      setShowText(true); 
     }, 2300);
 
     return () => {

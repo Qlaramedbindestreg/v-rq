@@ -1,4 +1,5 @@
 @import "../../variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=HK+Grotesk:wght@400;500;600;700&display=swap');
 
 
 .frontpage {
@@ -28,6 +29,7 @@
 
 
 .frontpage__logo-wordmark {
+  font-family: 'HK Grotesk', sans-serif; 
   font-size: clamp(4rem, 12vw, 8rem);
   letter-spacing: 0.25em;
   margin: 0;
@@ -76,7 +78,7 @@
   color: $red-color;
 }
 
-/* Tagline uses rgba for slight transparency of the $light-color */
+
 .frontpage__tagline {
   font-size: clamp(1rem, 1.4vw, 1.1rem);
   max-width: 40rem;

@@ -1,4 +1,6 @@
 @import "../../variables";
+@import url('https://fonts.googleapis.com/css2?family=HK+Grotesk:wght@400;500;600;700&display=swap');
+
 
 .header {
   position: sticky;
@@ -45,6 +47,7 @@
   }
 
   &__wordmark {
+    font-family: 'HK Grotesk', sans-serif; 
     font-size: 1.1rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -52,6 +55,7 @@
     color: $red-color;
     text-shadow: 0 1px 0 rgba(255,255,255,0.45), 0 2px 8px rgba(0,0,0,0.06);
     padding-left: 2px;
+   
 
     @media (max-width: 480px) {
       font-size: 1rem;
