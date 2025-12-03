@@ -51,4 +51,12 @@ export default function Booking() {
 
       <section className="booking__cta">
         <p className="booking__cta-text">
-          Ønsker du at høre mere eller booke
+          Ønsker du at høre mere eller booke VÆRQ til et projekt?
+        </p>
+        <a href="/kontakt" className="booking__cta-link">
+          Kontakt os her →
+        </a>
+      </section>
+    </main>
+  );
+}
