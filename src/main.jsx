@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from "./App.jsx";
 import Forside from "./views/forside/Forside";
 import OmOs from "./views/omos/OmOs";
+import Projekter from "./views/projekter/Projekter.jsx";
 
 import Booking from "./views/booking/Booking";
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: '/om-os',
         element: <OmOs />,
+      },
+       {
+        path: '/projekter',
+        element: <Projekter />,
       },
    
       {

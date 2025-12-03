@@ -3,9 +3,9 @@ import "./booking.scss";
 
 const OFFER_ITEMS = [
   "Modulopbyggede scener og udstillinger",
-  "Mobile installationer med lav CO₂-udledning",
-  "Websites og visuelle identiteter, der matcher den fysiske scenografi",
-  "Rådgivning i cirkulært design og genbrugspotentiale",
+  "Mobile installationer med fokus på fleksible og ansvarlige materialevalg",
+  "Websites og visuelle identiteter, der spiller sammen med den fysiske scenografi",
+  "Rådgivning i materialebevidste designprocesser og mulige genbrugsløsninger",
 ];
 
 export default function Booking() {
@@ -16,18 +16,19 @@ export default function Booking() {
           <h1 className="booking__title">Book VÆRQ</h1>
 
           <p className="booking__text">
-            VÆRQ er en designvirksomhed, der tilbyder scenografi- og
+            VÆRQ er en designvirksomhed, der arbejder med scenografi- og
             identitetsdesign til kunstnere, kulturinstitutioner, events og
-            festivaller. Vores kerneydelse er skræddersyede visuelle
-            helhedsløsninger – fra fysisk setdesign til digital tilstedeværelse,
-            hvor fx scenografi og hjemmeside udvikles som ét samlet æstetisk og
-            funktionelt koncept.
+            festivaller. Vi skaber visuelle helhedsløsninger – fra fysisk
+            setdesign til digital tilstedeværelse – udviklet som ét samlet
+            æstetisk og funktionelt univers.
           </p>
 
           <p className="booking__text">
-            Vi oplever et stigende behov i kulturbranchen for visuelle koncepter,
-            der er både æstetisk stærke, klimabevidste og digitale. VÆRQ tilbyder
-            derfor fleksible designpakker, der kan rumme:
+            Vi arbejder målrettet med ansvarlige og gennemtænkte designvalg.
+            Det gælder både i forhold til materialer, produktion og muligheden
+            for genbrug, men også i måden vi samarbejder på. For os er et
+            bæredygtigt arbejdsmiljø lige så vigtigt som det fysiske design —
+            et miljø hvor processer er sunde, og hvor man passer på hinanden.
           </p>
         </div>
 

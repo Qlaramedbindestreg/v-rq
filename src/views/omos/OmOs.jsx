@@ -62,7 +62,7 @@ export default function OmOs() {
           <h2 className="profileName">Clara Qvist-Richards</h2>
           <p className="role">Cand.mag. i kultur og kommunikation</p>
           <p className="responsibility">
-            Kommunikation og ad. hoc. 
+            Kommunikationsansvarlig. 
           </p>
         </div>
       </section>

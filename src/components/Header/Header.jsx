@@ -27,7 +27,7 @@ export default function Header() {
           <span className="header__wordmark">VÆRQ</span>
         </NavLink>
 
-        {/* Burger til mobil */}
+    
         <button
           className={`header__toggle ${menuOpen ? "header__toggle--open" : ""}`}
           onClick={() => setMenuOpen((prev) => !prev)}
@@ -53,6 +53,11 @@ export default function Header() {
             <li>
               <NavLink to="/om-os" className={getNavClass} onClick={handleNavClick}>
                 Om os
+              </NavLink>
+            </li>
+               <li>
+              <NavLink to="/projekter" className={getNavClass} onClick={handleNavClick}>
+                Projekter
               </NavLink>
             </li>
             <li>
