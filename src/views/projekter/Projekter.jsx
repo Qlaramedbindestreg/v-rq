@@ -26,7 +26,7 @@ export default function Projekter() {
 
         <div className="groupImageContainer">
           <img
-            src={o}
+            src={a}
             alt="Detalje fra O Days indgangsparti"
             className="groupImage"
             loading="eager"
