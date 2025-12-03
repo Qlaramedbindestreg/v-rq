@@ -29,6 +29,7 @@ export default function Projekter() {
             src={o}
             alt="Detalje fra O Days indgangsparti"
             className="groupImage"
+            loading="eager"
           />
         </div>
       </section>
@@ -46,30 +47,36 @@ export default function Projekter() {
 
         <ul className="projectFacts">
           <li>
-            <strong>Rolle:</strong> Koncept, scenografi og byggeansvar
+            <span className="factLabel">Rolle:</span> Koncept, scenografi og
+            byggeansvar
           </li>
           <li>
-            <strong>Fokus:</strong> Materialeeffektivitet, modularitet og
-            sikkerhed
+            <span className="factLabel">Fokus:</span> Materialeeffektivitet,
+            modularitet og sikkerhed
           </li>
           <li>
-            <strong>Samarbejde:</strong> Festivalteam, lokale håndværkere og
-            frivillige
+            <span className="factLabel">Samarbejde:</span> Festivalteam, lokale
+            håndværkere og frivillige
           </li>
         </ul>
       </section>
 
-      <section className="gallerySection" aria-label="Billeder fra O Days projektet">
+      <section
+        className="gallerySection"
+        aria-label="Billeder fra O Days projektet"
+      >
         <h3 className="galleryTitle">Billedserie fra projektet</h3>
 
-        <div className="galleryGrid">
+        <div className="galleryGrid" role="list">
           {images.map((src, i) => (
-            <figure key={i} className="projectCard">
+            <figure key={i} className="projectCard" role="listitem">
               <img
                 src={src}
                 alt={`O Days – foto ${i + 1}`}
                 className="projectImage"
                 loading="lazy"
+                width="600"
+                height="400"
               />
               <figcaption className="caption">O Days — detalje {i + 1}</figcaption>
             </figure>
