@@ -39,7 +39,7 @@ export default function OmOs() {
           />
           <h2 className="profileName">Rachel Qvist-Richards</h2>
           <p className="role">Cand.comm. i performance design og byplanlægning</p>
-          <p className="responsibility">Snedker og byggeansvarlig</p>
+          <p className="responsibility">Byggeansvarlig</p>
         </div>
 
         <div className="profile">
