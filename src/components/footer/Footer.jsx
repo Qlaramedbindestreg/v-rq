@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="footer__social">
           <a
-            href="https://www.instagram.com/vaerq_vaerq"
+            href="https://www.instagram.com/vaerq_design/"
             target="_blank"
             rel="noopener noreferrer"
             className="footer__icon"
