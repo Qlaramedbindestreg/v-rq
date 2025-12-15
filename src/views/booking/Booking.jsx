@@ -2,7 +2,6 @@ import React from "react";
 import "./booking.scss";
 
 const OFFER_ITEMS = [
-  "Modulopbyggede scener og udstillinger",
   "Mobile installationer med fokus på fleksible og ansvarlige materialevalg",
   "Websites og visuelle identiteter, der spiller sammen med den fysiske scenografi",
   "Rådgivning i materialebevidste designprocesser og mulige genbrugsløsninger",
