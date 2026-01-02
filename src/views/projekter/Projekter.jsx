@@ -18,8 +18,7 @@ export default function Projekter() {
           <p className="description">
             Arbejdet på musikfestivalen O Days handlede om at skabe en
             genkendelig og imødekommende entré, der inviterer publikum ind i
-            festivalens stemning. Projektet var vores første større opgave som
-            kollektiv og viste, hvordan enkelt, gennemarbejdet design kan løfte
+            festivalens stemning. Projektet var vores første opgave og viste, hvordan enkelt, gennemarbejdet design kan løfte
             publikums oplevelse.
           </p>
         </div>
