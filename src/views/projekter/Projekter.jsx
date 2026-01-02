@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./projekter.scss";
 import o from "../../assets/o.jpeg";
 import d from "../../assets/d.jpeg";
@@ -88,9 +89,8 @@ export default function Projekter() {
           Vil du høre mere om projektet eller samarbejde med os om scenografi og
           identitet?
         </p>
-        <a href="/kontakt" className="ctaLink">
-          Kontakt os
-        </a>
+     
+        <Link to="/kontakt" className="ctaLink">Kontakt os</Link>
       </section>
     </main>
   );

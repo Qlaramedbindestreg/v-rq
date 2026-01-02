@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./booking.scss";
 
 const OFFER_ITEMS = [
@@ -52,9 +53,8 @@ export default function Booking() {
         <p className="booking__cta-text">
           Ønsker du at høre mere eller booke VÆRQ til et projekt?
         </p>
-        <a href="/kontakt" className="booking__cta-link">
-          Kontakt os her →
-        </a>
+     
+           <Link to="/kontakt" className="booking__cta-link">    Kontakt os her →</Link>
       </section>
     </main>
   );
