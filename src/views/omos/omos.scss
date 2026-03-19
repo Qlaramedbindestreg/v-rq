@@ -48,19 +48,21 @@
     }
   }
 
-  .groupImageContainer {
-    max-width: 420px;
-    width: 100%;
-    justify-self: center;
+.groupImageContainer {
+  max-width: 420px;
+  width: 100%;
+  justify-self: center;
 
-    .groupImage {
-      width: 100%;
-      border-radius: 16px;
-      object-fit: cover;
-      display: block;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18); // subtil, nordisk skygge
-    }
+  .groupImage {
+    width: 100%;
+    border-radius: 16px;
+    aspect-ratio: 4 / 3; 
+    object-fit: cover;
+    object-position: center top; 
+    display: block;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   }
+}
 }
 
 /* ------------------------------------------
@@ -108,7 +110,7 @@
 
     .responsibility {
       font-size: 0.95rem;
-      color: grey;
+      color: gray;
     }
   }
 }
