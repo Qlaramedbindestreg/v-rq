@@ -7,26 +7,15 @@ import a from "../../assets/a.jpeg";
 import y from "../../assets/y.jpeg";
 import s from "../../assets/s.jpeg";
 
-import generator from "../../assets/generator.png";
-
-import gen from "../../assets/newgenerous.png";
-import gen2 from "../../assets/newgenerous2.png";
-import gen3 from "../../assets/newgenerous3.png";
-
-import gestuz from "../../assets/gestuz.png";
-
 import skab from "../../assets/skab.jpeg";
-import bank from "../../assets/baenk.png";
-import hons from "../../assets/honsehus.png";
 
 const erhverv = [
   { title: "O Days", images: [d, o, a, y, s] },
-  { title: "Generator", images: [generator] },
-  { title: "New Generous", images: [gen, gen2, gen3] },
-  { title: "Gestuz", images: [gestuz] },
 ];
 
-const privateProjekter = [skab, bank, hons];
+const privateProjekter = [
+  { title: "Skab", images: [skab] },
+];
 
 export default function Projekter() {
   const handleNext = (id) => {
@@ -38,69 +27,64 @@ export default function Projekter() {
     const currentScroll = el.scrollLeft;
 
     if (currentScroll + visibleWidth >= scrollWidth - 1) {
-      // nåede sidste billede → tilbage til start
       el.scrollTo({ left: 0, behavior: "smooth" });
     } else {
-      // gå til næste billede
       el.scrollBy({ left: visibleWidth, behavior: "smooth" });
     }
   };
 
+const renderMasonryItem = (project, i, isCarousel = false) => (
+  <div key={i} className="masonryItem">
+    {/* Titlen først */}
+    {project.title && (
+      <h2 className="projectTitle">{project.title}</h2>
+    )}
+
+    {/* Billeder/carousel */}
+    {isCarousel ? (
+      <div className="carouselWrapper">
+        <div className="carousel" id={`carousel-${i}`}>
+          {project.images.map((img, index) => (
+            <div className="carouselItem" key={index}>
+              <img src={img} alt={project.title} />
+            </div>
+          ))}
+        </div>
+        <button
+          className="arrow"
+          onClick={() => handleNext(`carousel-${i}`)}
+        >
+          →
+        </button>
+      </div>
+    ) : (
+      <img src={project.images[0]} alt={project.title} />
+    )}
+  </div>
+);
+
+
   return (
     <main className="projekterMain">
-
+      {/* ERHVERV */}
       <section className="section">
         <h1 className="sectionTitle">Erhverv</h1>
-
-        <div className="projectGrid">
-          {erhverv.map((project, i) => (
-            <div key={i} className="projectCard">
-
-              
-
-              <div className="imageWrapper">
-                {project.images.length > 1 ? (
-                  <div className="carouselWrapper">
-                    <div className="carousel" id={`carousel-${i}`}>
-                      {project.images.map((img, index) => (
-                        <img key={index} src={img} alt={project.title} />
-                      ))}
-                    </div>
-
-                    <button
-                      className="arrow"
-                      onClick={() => handleNext(`carousel-${i}`)}
-                    >
-                      →
-                    </button>
-                  </div>
-                ) : (
-                  <img
-  src={project.images[0]}
-  alt={project.title}
-  className={project.title === "Gestuz" ? "gestuzImage" : ""}
-/>
-                )}
-              </div>
-
-              <h2 className="projectTitle">{project.title}</h2>
-            </div>
-          ))}
+        <div className="masonryGrid">
+          {erhverv.map((project, i) =>
+            renderMasonryItem(project, i, project.images.length > 1)
+          )}
         </div>
       </section>
 
+      {/* PRIVATE */}
       <section className="section">
         <h1 className="sectionTitle">Private projekter</h1>
-
-        <div className="privateGrid">
-          {privateProjekter.map((img, i) => (
-            <div key={i} className="privateItem">
-              <img src={img} alt="Privat projekt" />
-            </div>
-          ))}
+        <div className="masonryGrid">
+          {privateProjekter.map((project, i) =>
+            renderMasonryItem(project, i, false)
+          )}
         </div>
       </section>
-
     </main>
   );
 }

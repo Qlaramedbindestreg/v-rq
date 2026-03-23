@@ -21,75 +21,80 @@
 }
 
 /* ---------------------------
-   ERHVERV GRID (ENS STØRRELSE)
+   MASONRY GRID
 ---------------------------- */
+.masonryGrid {
+  column-count: 1;
+  column-gap: 16px;
 
-.projectGrid {
-  display: grid;
-  gap: 40px;
-  grid-template-columns: 1fr;
+  @media (min-width: 600px) {
+    column-count: 2;
+  }
 
-  @media (min-width: 700px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 900px) {
+    column-count: 3;
   }
 }
 
-.projectCard {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.gestuzImage {
-  object-position: center 5%; 
-}
-
-/* 🔒 DET HER ER DET VIGTIGE */
-.imageWrapper {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
+.masonryItem {
+  break-inside: avoid;
+  margin-bottom: 16px;
   border-radius: 12px;
-  background: #000; // fallback (undgår layout jump)
-}
-
-.imageWrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  overflow: hidden;
+  position: relative;
+  background-color: $blue-color;
 }
 
 /* ---------------------------
-   KARUSEL
+   ENKELTE BILLEDER
 ---------------------------- */
-
+.masonryItem > img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
 .carouselWrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  overflow: hidden;
+  border-radius: 12px; 
+  background-color: $blue-color;
 }
 
 .carousel {
-  display: flex;
-  height: 100%;
-  overflow-x: auto;
+  display: flex;               
+  overflow-x: auto;           
   scroll-snap-type: x mandatory;
-
-  img {
-    min-width: 100%;
-    height: 100%;
-    object-fit: cover;
-    scroll-snap-align: start;
-  }
+  gap: 0;                      
 
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-/* 🔴 PIL – ingen cirkel */
+.carouselItem {
+  flex: 0 0 100%;              
+  overflow: hidden;
+  border-radius: 12px;         
+}
+
+.carouselItem img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  -webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%);
+  mask-image: radial-gradient(circle, black 100%, transparent 100%);
+  border-radius: 12px;
+}
+
+/* ---------------------------
+   PIL
+---------------------------- */
 .arrow {
   position: absolute;
-  bottom: 8px;
+  top: 8px;
   right: 10px;
   background: none;
   border: none;
@@ -97,46 +102,14 @@
   font-size: 28px;
   cursor: pointer;
   padding: 0;
+  z-index: 2;
 }
 
 /* ---------------------------
    TITLER
 ---------------------------- */
-
 .projectTitle {
   color: $red-color;
   font-size: 1.1rem;
-  margin-top: 6px;
-}
-
-/* ---------------------------
-   PRIVATE GRID
----------------------------- */
-.privateGrid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: 1fr;
-
-  @media (min-width: 600px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.privateItem {
-  overflow: hidden;
-  border-radius: 12px; // border-radius på wrapper
-  background-color: $blue-color; // sørg for baggrund bag contain-billedet
-}
-
-.privateItem img {
-  width: 100%;
-  height: 220px;
-  object-fit: contain; 
-  object-position: center;
-  transition: transform 0.4s ease;
-}
-
-/* ✨ HOVER ZOOM */
-.privateItem:hover img {
-  transform: scale(1.08);
+  margin-bottom: 8px; // afstand mellem titel og billede
 }
