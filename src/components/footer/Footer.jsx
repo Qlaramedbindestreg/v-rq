@@ -33,7 +33,7 @@ export default function Footer() {
 
         <div className="footer__info">
           <span>VÆRQ ApS · CVR 46157109</span>
-          <span>Vasbygade 10A, 2450 København SV</span>
+          <span>Otto Busses Vej 21, 2450 København SV</span>
         </div>
 
         <button onClick={scrollToTop} className="footer__scroll">
