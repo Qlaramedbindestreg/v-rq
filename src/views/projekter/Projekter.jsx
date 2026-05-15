@@ -8,9 +8,19 @@ import y from "../../assets/y.jpeg";
 import s from "../../assets/s.jpeg";
 
 import skab from "../../assets/skab.jpeg";
+import boks from "../../assets/boks.JPEG";
+import boksgamer from "../../assets/boksgamer.jpeg";
+import boksi from "../../assets/boksi.jpeg";
+import boksudenfor from "../../assets/boksudenfor.jpeg";
+import bts from "../../assets/bts.JPG";
+import powerboks from "../../assets/powerboks.jpeg";
 
 const erhverv = [
   { title: "O Days", images: [d, o, a, y, s] },
+  {
+    title: "Power",
+    images: [powerboks, boks, boksgamer, boksi, boksudenfor, bts],
+  },
 ];
 
 const privateProjekter = [
