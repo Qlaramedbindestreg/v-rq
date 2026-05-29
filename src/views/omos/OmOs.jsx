@@ -16,7 +16,7 @@ export default function OmOs() {
             Clara og deres kusine Laura. Sammen forener vi vores forskellige
             fagligheder inden for kommunikation, design, arkitektur og
             håndværk. Vi kommer fra en familie fyldt med kunstnere, musikere og
-            designere – og VÆRQ er vores måde at føre den kreative arv videre
+            designere og VÆRQ er vores måde at føre den kreative arv videre
             på.
           </p>
         </div>

@@ -18,8 +18,8 @@ export default function Booking() {
           <p className="booking__text">
             VÆRQ er en designvirksomhed, der arbejder med scenografi- og
             identitetsdesign til kunstnere, kulturinstitutioner, events og
-            festivaller. Vi skaber visuelle helhedsløsninger – fra fysisk
-            setdesign til digital tilstedeværelse – udviklet som ét samlet
+            festivaller. Vi skaber visuelle helhedsløsninger fra fysisk
+            setdesign til digital tilstedeværelse udviklet som ét samlet
             æstetisk og funktionelt univers.
           </p>
 
@@ -27,7 +27,7 @@ export default function Booking() {
             Vi arbejder målrettet med ansvarlige og gennemtænkte designvalg.
             Det gælder både i forhold til materialer, produktion og muligheden
             for genbrug, men også i måden vi samarbejder på. For os er et
-            bæredygtigt arbejdsmiljø lige så vigtigt som det fysiske design —
+            bæredygtigt arbejdsmiljø lige så vigtigt som det fysiske design
             et miljø hvor processer er sunde, og hvor man passer på hinanden.
           </p>
         </div>
