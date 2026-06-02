@@ -57,7 +57,7 @@ export default function Header() {
             </li>
                <li>
               <NavLink to="/projekter" className={getNavClass} onClick={handleNavClick}>
-                Projekter
+                Cases
               </NavLink>
             </li>
             <li>
