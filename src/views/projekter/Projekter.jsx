@@ -136,7 +136,7 @@ export default function Projekter() {
           </button>
           <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={selectedProject.images[selectedImage]} 
+              src={selectedProject.images[selectedImage]}  
               alt={`${selectedProject.title} - ${selectedImage + 1}`}
             />
             <div className="lightbox__info">
