@@ -15,7 +15,30 @@ import boksudenfor from "../../assets/boksudenfor.jpeg";
 import bts from "../../assets/bts.jpg";
 import powerboks from "../../assets/powerboks.jpeg";
 
+import sun1 from "../../assets/sun1.JPG";
+import sun2 from "../../assets/sun2.JPG";
+import sun3 from "../../assets/sun3.JPG";
+import sun4 from "../../assets/sun4.JPG";
+import sun5 from "../../assets/sun5.JPG";
+import sun6 from "../../assets/sun6.JPG";
+import sun7 from "../../assets/sun7.JPG";
+import sun8 from "../../assets/sun8.JPG";
+import sun9 from "../../assets/sun9.jpg";
+import sun10 from "../../assets/sun10.jpg";
+import sun11 from "../../assets/sun11.jpg";
+import sun12 from "../../assets/sun12.jpg";
+import sun13 from "../../assets/sun13.JPG";
+import sun14 from "../../assets/sun14.JPG";
+
 const projects = [
+  {
+    title: "Tuborg Sunsæt",
+    category: "Festival Installation",
+    description:
+      "Installation skabt til Distortion i samarbejde med Tuborg Sunsæt.",
+    images: [sun10, sun1, sun2, sun3, sun4, sun5, sun6, sun7, sun8, sun9, sun11, sun12, sun13, sun14],
+    featured: true,
+  },
   {
     title: "O Days",
     category: "Festival",
