@@ -36,7 +36,7 @@ const projects = [
     category: "Festival Installation",
     description:
       "Installation skabt til Distortion i samarbejde med Tuborg Sunsæt.",
-    images: [sun10, sun1, sun2, sun3, sun4, sun5, sun6, sun7, sun8, sun9, sun11, sun12, sun13, sun14],
+    images: [sun10, sun2, sun1, sun3, sun4, sun5, sun6, sun7, sun8, sun9, sun11, sun12, sun13, sun14],
     featured: true,
   },
   {
