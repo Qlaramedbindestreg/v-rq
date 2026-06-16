@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./projekter.scss";
 
 import o from "../../assets/o.jpeg";
@@ -34,151 +34,133 @@ const projects = [
   {
     title: "Tuborg Sunsæt",
     category: "Festival Installation",
+    year: "2024",
+    collaborators: "Distortion × Tuborg",
     description:
       "Installation skabt til Distortion i samarbejde med Tuborg Sunsæt.",
     images: [sun10, sun2, sun1, sun3, sun4, sun5, sun6, sun7, sun8, sun9, sun11, sun12, sun13, sun14],
-    featured: true,
   },
   {
     title: "O Days",
     category: "Festival",
+    year: "2024",
+    collaborators: "O Days Festival",
     description:
       "Indgangsparti designet og udviklet til O Days festivalen med fokus på rumlig branding og atmosfære.",
     images: [d, o, a, y, s],
-    featured: true,
   },
   {
     title: "Power",
     category: "Brand Activation",
+    year: "2023",
+    collaborators: "Kesi × Power",
     description:
       "Fysisk installation udviklet til musikeren Kesi i samarbejde med Power.",
     images: [powerboks, boks, boksgamer, boksi, boksudenfor, bts],
-    featured: false,
   },
   {
     title: "Skab",
     category: "Privat kunde",
-    description: "Egetræs skab designet og specielbygget til opbevaring af vaskemaskine og tørretumbler.",
+    year: "2023",
+    collaborators: null,
+    description:
+      "Egetræs skab designet og specielbygget til opbevaring af vaskemaskine og tørretumbler.",
     images: [skab],
-    featured: false,
   },
 ];
 
 export default function Projekter() {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [lightbox, setLightbox] = useState(null); // { project, index }
 
-  const openLightbox = (project, imageIndex) => {
-    setSelectedProject(project);
-    setSelectedImage(imageIndex);
+  const openLightbox = (project, index) => setLightbox({ project, index });
+  const closeLightbox = () => setLightbox(null);
+
+  const prev = (e) => {
+    e.stopPropagation();
+    setLightbox((lb) => ({
+      ...lb,
+      index: lb.index === 0 ? lb.project.images.length - 1 : lb.index - 1,
+    }));
   };
 
-  const closeLightbox = () => {
-    setSelectedProject(null);
-    setSelectedImage(null);
+  const next = (e) => {
+    e.stopPropagation();
+    setLightbox((lb) => ({
+      ...lb,
+      index: lb.index === lb.project.images.length - 1 ? 0 : lb.index + 1,
+    }));
   };
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (!lightbox) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") setLightbox((lb) => ({ ...lb, index: lb.index === 0 ? lb.project.images.length - 1 : lb.index - 1 }));
+      if (e.key === "ArrowRight") setLightbox((lb) => ({ ...lb, index: lb.index === lb.project.images.length - 1 ? 0 : lb.index + 1 }));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
 
   return (
     <main className="projects">
-      <section className="projects__section">
-
-
-        <div className="projects__grid">
-          {projects.map((project, i) => (
-            <article
-              key={i}
-              className={`projectCard ${project.featured ? "isFeatured" : ""}`}
-            >
-              <div className="projectCard__content">
-                <span className="projectCard__category">
-                  {project.category}
-                </span>
-                <h2 className="projectCard__title">{project.title}</h2>
-                <p className="projectCard__description">
-                  {project.description}
-                </p>
-              </div>
-
-              <div className="projectCard__gallery">
-                {project.images.length === 1 ? (
-                  <div 
-                    className="projectCard__singleImage"
-                    onClick={() => openLightbox(project, 0)}
-                  >
-                    <img src={project.images[0]} alt={project.title} />
-                  </div>
-                ) : (
-                  <div className="projectCard__galleryGrid">
-                    {/* Hero image - first image large */}
-                    <div 
-                      className="projectCard__galleryItem projectCard__heroImage"
-                      onClick={() => openLightbox(project, 0)}
-                    >
-                      <img src={project.images[0]} alt={`${project.title} - main`} />
-                    </div>
-                    
-                    {/* Grid of remaining images */}
-                    <div className="projectCard__thumbnailGrid">
-                      {project.images.slice(1, 5).map((img, imgIndex) => (
-                        <div 
-                          key={imgIndex} 
-                          className="projectCard__galleryItem"
-                          onClick={() => openLightbox(project, imgIndex + 1)}
-                        >
-                          <img src={img} alt={`${project.title} - ${imgIndex + 2}`} />
-                          {imgIndex === 3 && project.images.length > 5 && (
-                            <div className="projectCard__moreOverlay">
-                              <span>+{project.images.length - 5}</span>
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+      <div className="projects__list">
+        {projects.map((project, i) => (
+          <article key={i} className="case">
+            <div className="case__cover" onClick={() => openLightbox(project, 0)}>
+              <img src={project.images[0]} alt={project.title} />
+              <div className="case__coverOverlay">
+                <span className="case__category">{project.category}</span>
+                <h2 className="case__title">{project.title}</h2>
+                {project.collaborators && (
+                  <span className="case__collaborators">{project.collaborators}</span>
                 )}
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            </div>
 
-      {/* Lightbox Modal */}
-      {selectedProject && selectedImage !== null && (
+            <div className="case__body">
+              <p className="case__description">{project.description}</p>
+
+              {project.images.length > 1 && (
+                <div className="case__strip">
+                  {project.images.slice(1).map((img, j) => (
+                    <button
+                      key={j}
+                      className="case__thumb"
+                      onClick={() => openLightbox(project, j + 1)}
+                    >
+                      <img src={img} alt={`${project.title} ${j + 2}`} />
+                      {j === 5 && project.images.length > 7 && (
+                        <div className="case__thumbMore">
+                          +{project.images.length - 7}
+                        </div>
+                      )}
+                    </button>
+                  )).slice(0, 6)}
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {lightbox && (
         <div className="lightbox" onClick={closeLightbox}>
           <button className="lightbox__close" onClick={closeLightbox}>×</button>
-          <button 
-            className="lightbox__prev" 
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedImage((prev) => 
-                prev === 0 ? selectedProject.images.length - 1 : prev - 1
-              );
-            }}
-          >
-            ‹
-          </button>
+          <button className="lightbox__prev" onClick={prev}>‹</button>
           <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-            <img 
-              src={selectedProject.images[selectedImage]}  
-              alt={`${selectedProject.title} - ${selectedImage + 1}`}
+            <img
+              src={lightbox.project.images[lightbox.index]}
+              alt={`${lightbox.project.title} ${lightbox.index + 1}`}
             />
-            <div className="lightbox__info">
-              <h3>{selectedProject.title}</h3>
-              <p>{selectedProject.description}</p>
-              <span>{selectedImage + 1} / {selectedProject.images.length}</span>
+            <div className="lightbox__meta">
+              <span className="lightbox__counter">
+                {lightbox.index + 1} / {lightbox.project.images.length}
+              </span>
+              <span className="lightbox__name">{lightbox.project.title}</span>
             </div>
           </div>
-          <button 
-            className="lightbox__next" 
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedImage((prev) => 
-                prev === selectedProject.images.length - 1 ? 0 : prev + 1
-              );
-            }}
-          >
-            ›
-          </button>
+          <button className="lightbox__next" onClick={next}>›</button>
         </div>
       )}
     </main>
