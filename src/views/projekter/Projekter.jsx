@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./projekter.scss";
 
 // O Days 2025
@@ -40,7 +40,47 @@ import sun12 from "../../assets/sun12.jpg";
 import sun13 from "../../assets/sun13.JPG";
 import sun14 from "../../assets/sun14.JPG";
 
+// Københavns Universitet
+import quan from "../../assets/quan.jpg";
+import quan1 from "../../assets/quan1.jpg";
+import quantum from "../../assets/quantum.jpg";
+
+// Emilia Sølvsten
+import sukker from "../../assets/sukker.jpg";
+import sukker1 from "../../assets/sukker1.jpg";
+import sukker2 from "../../assets/sukker2.jpg";
+import sukkerud from "../../assets/sukkerud.jpg";
+
 const projects = [
+  {
+    title: "Quantum Foundry",
+    category: "Messestand",
+    year: "2026",
+    collaborators: "Quantum Foundry × Københavns Universitet",
+    description:
+      "VÆRQ stod for design, produktion og opsætning af messestand for Quantum Foundry Copenhagen i samarbejde med Københavns Universitet.",
+    media: [
+      { type: "image", src: quan },
+      { type: "image", src: quan1 },
+      { type: "image", src: quantum },
+    ],
+  },
+
+  {
+    title: "Emilia Sølvsten",
+    category: "Kunstproduktion",
+    year: "2026",
+    collaborators: "Emilia Sølvsten × Copenhagen Contemporary",
+    description:
+      "VÆRQ bidrog til produktionen af Emilia Sølvstens værk til FIRE & ICE på Copenhagen Contemporary med støbning af toppe i sukker og resin. Alt kunstnerisk ansvar og credit for værket tilhører Emilia Sølvsten.",
+    media: [
+      { type: "image", src: sukker },
+      { type: "image", src: sukker1 },
+      { type: "image", src: sukker2 },
+      { type: "image", src: sukkerud },
+    ],
+  },
+
   {
     title: "Tuborg Sunsæt",
     category: "Festival Installation",
@@ -121,13 +161,15 @@ const projects = [
     year: "2025",
     collaborators: null,
     description:
-      "Egetræs skab designet og specielbygget til opbevaring af vaskemaskine og tørretumbler.",
+      "Egetræsskabs designet og specialbygget til opbevaring af vaskemaskine og tørretumbler.",
     media: [{ type: "image", src: skab }],
   },
 ];
 
 export default function Projekter() {
   const [lightbox, setLightbox] = useState(null);
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
 
   const openLightbox = (project, index) => {
     setLightbox({ project, index });
@@ -159,6 +201,57 @@ export default function Projekter() {
           ? 0
           : lb.index + 1,
     }));
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (
+      touchStartX.current === null ||
+      touchStartY.current === null
+    ) {
+      return;
+    }
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+
+    const deltaX = touchEndX - touchStartX.current;
+    const deltaY = touchEndY - touchStartY.current;
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+
+    // Ignorer hvis det primært var et vertikalt swipe
+    if (Math.abs(deltaX) < Math.abs(deltaY)) {
+      return;
+    }
+
+    // Kræv mindst 50 px bevægelse
+    if (Math.abs(deltaX) < 50) {
+      return;
+    }
+
+    if (deltaX < 0) {
+      setLightbox((lb) => ({
+        ...lb,
+        index:
+          lb.index === lb.project.media.length - 1
+            ? 0
+            : lb.index + 1,
+      }));
+    } else {
+      setLightbox((lb) => ({
+        ...lb,
+        index:
+          lb.index === 0
+            ? lb.project.media.length - 1
+            : lb.index - 1,
+      }));
+    }
   };
 
   useEffect(() => {
@@ -334,6 +427,8 @@ export default function Projekter() {
           <div
             className="lightbox__content"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
             {renderMedia(
               lightbox.project.media[lightbox.index]
