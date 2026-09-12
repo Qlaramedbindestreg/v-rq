@@ -50,7 +50,9 @@ import sukker from "../../assets/sukker.jpg";
 import sukker1 from "../../assets/sukker1.jpg";
 import sukker2 from "../../assets/sukker2.jpg";
 import sukkerud from "../../assets/sukkerud.jpg";
-
+import suk from "../../assets/suk.jpg";
+import suk1 from "../../assets/suk1.jpg";
+import suk2 from "../../assets/suk2.jpg";
 const projects = [
   {
     title: "Quantum Foundry",
@@ -74,6 +76,9 @@ const projects = [
     description:
       "VÆRQ bidrog til produktionen af Emilia Sølvstens værk til FIRE & ICE på Copenhagen Contemporary med støbning af toppe i sukker og resin. Alt kunstnerisk ansvar og credit for værket tilhører Emilia Sølvsten.",
     media: [
+      { type: "image", src: suk },
+      { type: "image", src: suk1 },
+      { type: "image", src: suk2 },
       { type: "image", src: sukker },
       { type: "image", src: sukker1 },
       { type: "image", src: sukker2 },
