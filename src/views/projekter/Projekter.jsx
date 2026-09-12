@@ -62,8 +62,8 @@ const projects = [
     description:
       "VÆRQ stod for design, produktion og opsætning af messestand for Quantum Foundry Copenhagen i samarbejde med Københavns Universitet.",
     media: [
-      { type: "image", src: quan },
       { type: "image", src: quan1 },
+      { type: "image", src: quan },
       { type: "image", src: quantum },
     ],
   },
