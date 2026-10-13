@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import "./projekter.scss";
 
@@ -40,19 +41,21 @@ import sun12 from "../../assets/sun12.jpg";
 import sun13 from "../../assets/sun13.JPG";
 import sun14 from "../../assets/sun14.JPG";
 
-// Københavns Universitet
+// Københavns Universitet / Quantum Foundry
 import quan from "../../assets/quan.jpg";
 import quan1 from "../../assets/quan1.jpg";
 import quantum from "../../assets/quantum.jpg";
+import quanpub from "../../assets/quanpub.JPG";
+import quanpub2 from "../../assets/quanpub2.JPG";
+import quanpub3 from "../../assets/quanpub3.jpg";
+import quanpub4 from "../../assets/quanpub4.JPG";
 
 // Emilia Sølvsten
 import sukker from "../../assets/sukker.jpg";
 import sukker1 from "../../assets/sukker1.jpg";
 import sukker2 from "../../assets/sukker2.jpg";
 import sukkerud from "../../assets/sukkerud.jpg";
-import suk from "../../assets/suk.jpg";
-import suk1 from "../../assets/suk1.jpg";
-import suk2 from "../../assets/suk2.jpg";
+
 const projects = [
   {
     title: "Quantum Foundry",
@@ -62,9 +65,13 @@ const projects = [
     description:
       "VÆRQ stod for design, produktion og opsætning af messestand for Quantum Foundry Copenhagen i samarbejde med Københavns Universitet.",
     media: [
-      { type: "image", src: quan1 },
       { type: "image", src: quan },
+      { type: "image", src: quan1 },
       { type: "image", src: quantum },
+      { type: "image", src: quanpub },
+      { type: "image", src: quanpub2 },
+      { type: "image", src: quanpub3 },
+      { type: "image", src: quanpub4 },
     ],
   },
 
@@ -76,9 +83,6 @@ const projects = [
     description:
       "VÆRQ bidrog til produktionen af Emilia Sølvstens værk til FIRE & ICE på Copenhagen Contemporary med støbning af toppe i sukker og resin. Alt kunstnerisk ansvar og credit for værket tilhører Emilia Sølvsten.",
     media: [
-      { type: "image", src: suk },
-      { type: "image", src: suk1 },
-      { type: "image", src: suk2 },
       { type: "image", src: sukker },
       { type: "image", src: sukker1 },
       { type: "image", src: sukker2 },
@@ -320,10 +324,8 @@ export default function Projekter() {
   return (
     <main className="projects">
       <div className="projects__list">
-
         {projects.map((project, i) => (
           <article key={i} className="case">
-
             {/* Cover */}
             <div
               className="case__cover"
@@ -350,14 +352,12 @@ export default function Projekter() {
 
             {/* Body */}
             <div className="case__body">
-
               <p className="case__description">
                 {project.description}
               </p>
 
               {project.media.length > 1 && (
                 <div className="case__strip">
-
                   {project.media
                     .slice(1)
                     .map((media, j) => (
@@ -397,14 +397,11 @@ export default function Projekter() {
                       </button>
                     ))
                     .slice(0, 6)}
-
                 </div>
               )}
-
             </div>
           </article>
         ))}
-
       </div>
 
       {/* Lightbox */}

@@ -1,345 +1,515 @@
+
 @import "../../variables";
+
+/* ------------------------------------------
+   PROJECTS PAGE
+------------------------------------------- */
 
 .projects {
   background-color: $blue-color;
   color: $light-color;
+  padding: 60px 20px 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
   min-height: 100vh;
-  padding: 60px 24px 80px;
+  box-sizing: border-box;
+}
+
+.projects *,
+.projects *::before,
+.projects *::after {
+  box-sizing: border-box;
 }
 
 .projects__list {
-  max-width: 960px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-
-  @media (min-width: 768px) {
-    gap: 100px;
-  }
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
 }
 
-/* =========================
-   CASE
-========================= */
+/* ------------------------------------------
+   PROJECT / CASE
+------------------------------------------- */
 
 .case {
+  width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1.25rem;
 }
 
-/* =========================
-   COVER
-========================= */
+/* ------------------------------------------
+   COVER IMAGE
+------------------------------------------- */
 
 .case__cover {
   position: relative;
-  cursor: pointer;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 14px;
+  cursor: pointer;
+  isolation: isolate;
+  background-color: rgba(0, 0, 0, 0.12);
 
   img,
   video {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+    height: 100%;
     display: block;
+    object-fit: cover;
     transition: transform 0.5s ease;
   }
 
-  &:hover img,
-  &:hover video {
-    transform: scale(1.02);
+  &:hover {
+    img,
+    video {
+      transform: scale(1.025);
+    }
+
+    .case__coverOverlay {
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.78) 0%,
+        rgba(0, 0, 0, 0.12) 65%,
+        transparent 100%
+      );
+    }
   }
 }
 
 .case__coverOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(17, 38, 63, 0.75) 0%,
-    transparent 55%
-  );
-
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
-  padding: 24px 28px;
-  gap: 4px;
-
+  align-items: flex-start;
+  gap: 0.45rem;
+  padding: 28px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.08) 65%,
+    transparent 100%
+  );
+  transition: background 0.3s ease;
   pointer-events: none;
 }
 
 .case__category {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
+  color: $green-color;
 }
 
 .case__title {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  color: #fff;
   margin: 0;
-  line-height: 1.15;
+  color: $light-color;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  text-shadow: none;
 }
 
 .case__collaborators {
-  font-size: 0.75rem;
-  color: $red-color;
-  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-/* =========================
-   BODY
-========================= */
+/* ------------------------------------------
+   PROJECT DESCRIPTION
+------------------------------------------- */
 
 .case__body {
-  padding: 20px 4px 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1.25rem;
 }
 
 .case__description {
-  font-size: 0.9rem;
-  line-height: 1.65;
-  opacity: 0.75;
-  max-width: 600px;
+  max-width: 760px;
   margin: 0;
+  color: $light-color;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 400;
 }
 
-/* =========================
-   THUMBNAILS
-========================= */
+/* ------------------------------------------
+   THUMBNAIL STRIP
+------------------------------------------- */
 
 .case__strip {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.65rem;
 }
 
 .case__thumb {
-  flex: 0 0 auto;
   position: relative;
-
-  width: 120px;
-  height: 80px;
-
-  border: none;
+  min-width: 0;
+  width: 100%;
   padding: 0;
-  background: none;
-
-  cursor: pointer;
-  border-radius: 3px;
+  border: 0;
+  border-radius: 8px;
   overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 
   img,
   video {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
   }
 
-  &:hover img,
-  &:hover video {
-    transform: scale(1.05);
+  &:hover {
+    img,
+    video {
+      transform: scale(1.06);
+      opacity: 0.85;
+    }
   }
 
-  @media (min-width: 768px) {
-    width: 150px;
-    height: 100px;
+  &:focus-visible {
+    outline: 2px solid $green-color;
+    outline-offset: 3px;
   }
 }
-
-/* Play icon on video thumbnails */
 
 .case__videoIcon {
   position: absolute;
-  inset: 0;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  color: #fff;
-  font-size: 1.2rem;
-
-  background: rgba(17, 38, 63, 0.25);
-
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  font-size: 0.85rem;
   pointer-events: none;
 }
-
-/* More images overlay */
 
 .case__thumbMore {
   position: absolute;
   inset: 0;
-
-  background: rgba(17, 38, 63, 0.75);
-
-  color: #fff;
-
-  font-size: 1rem;
-  font-weight: 600;
-
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 600;
+  pointer-events: none;
 }
 
-/* =========================
+/* ------------------------------------------
    LIGHTBOX
-========================= */
+------------------------------------------- */
 
 .lightbox {
   position: fixed;
   inset: 0;
-
-  background: rgba(10, 10, 10, 0.97);
-
   z-index: 1000;
-
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  padding: 20px;
+  align-items: center;
+  padding: 60px 80px;
+  background-color: rgba(9, 15, 24, 0.96);
+  animation: lightboxFadeIn 0.2s ease;
 }
 
 .lightbox__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  min-height: 0;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 
-  max-width: 90vw;
-  max-height: 90vh;
-
-  gap: 12px;
-
-  img,
-  video {
-    max-width: 100%;
-    max-height: 80vh;
-
-    object-fit: contain;
+  > img,
+  > video {
     display: block;
-
-    border-radius: 3px;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100% - 50px);
+    object-fit: contain;
+    border-radius: 4px;
   }
 }
 
 .lightbox__meta {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: $light-color;
+  font-size: 0.85rem;
+}
 
-  width: 100%;
-
-  color: rgba(255, 255, 255, 0.5);
-
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
+.lightbox__counter {
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
 }
 
 .lightbox__name {
-  color: rgba(255, 255, 255, 0.8);
+  text-align: right;
+  font-weight: 500;
 }
-
-/* =========================
-   LIGHTBOX BUTTONS
-========================= */
 
 .lightbox__close,
 .lightbox__prev,
 .lightbox__next {
-  position: fixed;
-
-  background: none;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
-
-  color: rgba(255, 255, 255, 0.6);
-
+  padding: 0;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
   cursor: pointer;
-
-  font-size: 2rem;
-  line-height: 1;
-
-  padding: 8px 12px;
-
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
 
   &:hover {
-    color: #fff;
+    background-color: rgba(255, 255, 255, 0.22);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $green-color;
+    outline-offset: 3px;
   }
 }
 
 .lightbox__close {
   top: 20px;
   right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 1;
+}
 
-  font-size: 1.8rem;
+.lightbox__prev,
+.lightbox__next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 64px;
+  border-radius: 8px;
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .lightbox__prev {
-  left: 16px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  font-size: 2.5rem;
+  left: 20px;
 }
 
 .lightbox__next {
-  right: 16px;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  font-size: 2.5rem;
+  right: 20px;
 }
-/* =========================
+
+/* ------------------------------------------
+   ANIMATION
+------------------------------------------- */
+
+@keyframes lightboxFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------
+   TABLET
+------------------------------------------- */
+
+@media (min-width: 700px) {
+  .projects__list {
+    gap: 4.5rem;
+  }
+
+  .case__cover {
+    aspect-ratio: 16 / 9;
+  }
+
+  .case__coverOverlay {
+    padding: 32px;
+  }
+
+  .case__strip {
+    gap: 0.8rem;
+  }
+}
+
+/* ------------------------------------------
+   DESKTOP
+------------------------------------------- */
+
+@media (min-width: 1000px) {
+  .projects {
+    padding: 70px 32px 90px;
+  }
+
+  .projects__list {
+    gap: 5rem;
+  }
+
+  .case__cover {
+    aspect-ratio: 16 / 8.5;
+  }
+
+  .case__coverOverlay {
+    padding: 38px;
+  }
+
+  .case__description {
+    font-size: 1.05rem;
+  }
+}
+
+/* ------------------------------------------
    MOBILE
-========================= */
+------------------------------------------- */
 
 @media (max-width: 600px) {
-
   .projects {
     padding: 40px 16px 60px;
   }
 
-  .case__cover {
+  .projects__list {
+    gap: 3rem;
+  }
 
-    img,
-    video {
-      aspect-ratio: 4 / 3;
-    }
+  .case {
+    gap: 1rem;
+  }
+
+  .case__cover {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
   }
 
   .case__coverOverlay {
     padding: 16px 18px;
+    gap: 0.35rem;
   }
 
-  /* Swipe mellem billeder i lightbox */
+  .case__category {
+    font-size: 0.68rem;
+  }
+
+  .case__title {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+  }
+
+  .case__collaborators {
+    font-size: 0.78rem;
+  }
+
+  .case__description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .case__strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .case__thumb {
+    border-radius: 6px;
+  }
+
+  .lightbox {
+    padding: 56px 12px 24px;
+  }
+
   .lightbox__content {
-    touch-action: pan-y;
-    user-select: none;
+    gap: 0.75rem;
+
+    > img,
+    > video {
+      max-width: 100%;
+      max-height: calc(100% - 45px);
+    }
   }
 
-  /* Ingen pile på mobil */
+  .lightbox__close {
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.7rem;
+  }
+
   .lightbox__prev,
   .lightbox__next {
     display: none;
   }
 
+  .lightbox__meta {
+    font-size: 0.78rem;
+  }
+}
+
+/* ------------------------------------------
+   REDUCED MOTION
+------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .case__cover img,
+  .case__cover video,
+  .case__thumb img,
+  .case__thumb video,
+  .lightbox__close,
+  .lightbox__prev,
+  .lightbox__next {
+    transition: none;
+  }
+
+  .lightbox {
+    animation: none;
+  }
 }
