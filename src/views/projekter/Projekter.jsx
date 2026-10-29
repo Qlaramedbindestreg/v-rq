@@ -16,6 +16,17 @@ import plantvid from "../../assets/plantvid.jpg";
 import plantekassevid from "../../assets/plantekassevid.mp4";
 import plantebts from "../../assets/plantebts.jpg";
 
+// Sønderthon × Power
+import sonder1 from "../../assets/sonder1.jpg";
+import sonder2 from "../../assets/sonder2.jpg";
+import sonder3 from "../../assets/sonder3.jpg";
+import sonder4 from "../../assets/sonder4.jpg";
+import sonder5 from "../../assets/sonder5.jpg";
+import sonder6 from "../../assets/sonder6.jpg";
+import sonder7 from "../../assets/sonder7.jpg";
+import sonder8 from "../../assets/sonder8.jpg";
+import sonder9 from "../../assets/sonder9.jpg";
+
 // Power
 import skab from "../../assets/skab.jpeg";
 import boks from "../../assets/boks.JPEG";
@@ -57,6 +68,27 @@ import sukker2 from "../../assets/sukker2.jpg";
 import sukkerud from "../../assets/sukkerud.jpg";
 
 const projects = [
+  {
+    title: "Sønderthon × Power",
+    category: "Brand Activation",
+    year: "2026",
+    collaborators: "Sønderthon × Power",
+    description:
+      "VÆRQ designede og producerede props til de fysiske spil og konkurrencer under Sønderthon 2.0, Rasmus Søndergaards 15 dage lange livestream-event med gæster, udfordringer og underholdning. Power var blandt eventets sponsorer.",
+    media: [
+      { type: "image", src: sonder1 },
+      { type: "image", src: sonder2 },
+      { type: "image", src: sonder3 },
+      { type: "image", src: sonder4 },
+      { type: "image", src: sonder5 },
+      { type: "image", src: sonder6 },
+      { type: "image", src: sonder7 },
+      { type: "image", src: sonder8 },
+      { type: "image", src: sonder9 },
+    ],
+  },
+
+
   {
     title: "Quantum Foundry",
     category: "Messestand",
