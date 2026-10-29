@@ -62,6 +62,8 @@ import quanpub3 from "../../assets/quanpub3.jpg";
 import quanpub4 from "../../assets/quanpub4.JPG";
 
 // Emilia Sølvsten
+import em from "../../assets/em.jpg";
+import em1 from "../../assets/em1.jpg";
 import sukker from "../../assets/sukker.jpg";
 import sukker1 from "../../assets/sukker1.jpg";
 import sukker2 from "../../assets/sukker2.jpg";
@@ -115,6 +117,8 @@ const projects = [
     description:
       "VÆRQ bidrog til produktionen af Emilia Sølvstens værk til FIRE & ICE på Copenhagen Contemporary med støbning af toppe i sukker og resin. Alt kunstnerisk ansvar og credit for værket tilhører Emilia Sølvsten.",
     media: [
+      { type: "image", src: em1 },
+      { type: "image", src: em },
       { type: "image", src: sukker },
       { type: "image", src: sukker1 },
       { type: "image", src: sukker2 },
