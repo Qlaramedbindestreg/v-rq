@@ -76,11 +76,11 @@ const projects = [
     description:
       "VÆRQ designede og producerede props til de fysiske spil og konkurrencer under Sønderthon 2.0, Rasmus Søndergaards 15 dage lange livestream-event med gæster, udfordringer og underholdning. Power var blandt eventets sponsorer.",
     media: [
+      { type: "image", src: sonder5 },
       { type: "image", src: sonder1 },
       { type: "image", src: sonder2 },
       { type: "image", src: sonder3 },
       { type: "image", src: sonder4 },
-      { type: "image", src: sonder5 },
       { type: "image", src: sonder6 },
       { type: "image", src: sonder7 },
       { type: "image", src: sonder8 },
