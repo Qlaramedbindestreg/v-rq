@@ -71,7 +71,7 @@ import sukkerud from "../../assets/sukkerud.jpg";
 
 const projects = [
   {
-    title: "Sønderthon × Power",
+    title: "Sønderthon",
     category: "Brand Activation",
     year: "2026",
     collaborators: "Sønderthon × Power",
@@ -184,7 +184,7 @@ const projects = [
   },
 
   {
-    title: "Power",
+    title: "Kesi",
     category: "Brand Activation",
     year: "2025",
     collaborators: "Kesi × Power",
